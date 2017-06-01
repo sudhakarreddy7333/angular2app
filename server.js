@@ -8,3 +8,7 @@ app.listen(port, function  (err,res) {
     };
 	console.log("server running");
 });
+app.all('*', function(req,res) {
+  console.log('restarting');
+  res.status(200).sendFile(__dirname+'/index.html');
+});
