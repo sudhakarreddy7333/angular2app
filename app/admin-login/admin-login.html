@@ -1,0 +1,94 @@
+<div class="row">
+	<nav>
+	    <div class="nav-wrapper">
+	      <a href="#!" class="brand-logo center">Employee Directory</a>
+	    </div>
+	</nav>
+	<div class = "offset-s4 col s6">
+		<div [hidden] = "forgotPwd" class="col s8">
+			<h5 class="header">Admin login</h5>
+		<div *ngIf = "loginStatus">
+			<label for="" style="color : red">Login failed, Invalid credidentials</label>
+		</div>
+		<form #adminForm="ngForm" class="card horizontal" novalidate (ngSubmit) = "adminForm.valid ? adminDetails() : 'return false'">
+			<div class="card-slacked">
+				<div class="card-content">
+					<div class = "col s12">
+						<label for="" >Username</label>
+							<input class="input-field" 
+							name = "username" 
+							type="text" 
+							id = "username"
+							[(ngModel)] = "details.username"
+							placeholder = "Enter Username"
+							required
+							minlength = "2"
+							maxlength = "50"
+							#username="ngModel">
+							<div *ngIf="adminForm.submitted && username.errors" class="error">
+					          <div [hidden]="!username.errors.required">Username is required</div>
+					          <div [hidden]="!username.errors.minlength">Username should be atleast 2 characters</div>
+					        </div>
+					</div>
+					<div class = "col s12">
+						<label for="">Password</label>
+						<input 
+						class="input-field" 
+						name = "password"
+						type="password" 
+						id = "password"
+						placeholder = "Enter password"
+						[(ngModel)] = "details.password" 
+						required
+						minlength = "5"
+						#password = "ngModel">
+						<div *ngIf="password.errors && adminForm.submitted" class="error">
+				          <div [hidden]="!password.errors.required">Password is required</div>
+				          <div [hidden]="!password.errors.minlength">Password should be atleast 5 characters long</div><br>
+				        </div> 
+					</div> <br>
+
+					<button 
+					type="submit"
+					id = "submitAdminDetls"
+					class="waves-effect waves-light btn" 
+					>Login</button>
+				</div>
+				<div class="card-action">
+		          <a (click) = "fogtPwd()"
+						id = "forgotPwdLink"
+						style="cursor : pointer" 
+		          >Forgot password</a>
+		          <a style="cursor:pointer" 
+   					(click)='popUpWindow()'>Login from External Resource</a>
+		        </div>
+			</div>
+		</form>
+		</div>
+		<div [hidden] = "!forgotPwd" class="col s8">
+			<h5 class="header">Enter Your registered Email ID</h5>
+			<form #adminFForm="ngForm" novalidate class="card horizontal" (ngSubmit) = "adminFForm.valid ? adminDetails() : 'return false'">
+				<div class="card-content col s12">
+					<div class="col s12">
+						<label for="">Email ID</label>
+						<input type="email"
+						placeholder = "Enter Email Id"
+						id = "forgotPwdEmail"
+						name = "forgotPwdEmail"
+						[(ngModel)] = "fogtpwd" 
+						#forgotPwdEmail = "ngModel"
+						required>
+						<div *ngIf="adminFForm.submitted && forgotPwdEmail.errors" class="error">
+					          <div [hidden]="!forgotPwdEmail.errors.required">Email Id is required</div> <br>
+					        </div>
+					</div>
+					<button type="submit" 
+					class="waves-effect waves-light btn"
+					id = "submitFgtPwd"
+					>Submit</button>
+					<a class="waves-effect waves-teal btn-flat" (click) = "backToLogin()">Back to Login</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

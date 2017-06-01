@@ -1,0 +1,50 @@
+<div class="row">
+<nav>
+	<div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a class="active" routerLink="/addemployee/add">Add Employees</a></li>
+        <li class="tab"><a  routerLink="/employeelist">Employee List</a></li>
+      </ul>
+    </div>	
+</nav>
+<div class="row offset-s1 col s10">
+	<h4>Employee list</h4>
+	<table class="highlight responsive-table bordered">
+		<thead>
+			<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Department</th>
+			<th>Gender</th>
+			<th>Phone No</th>
+			<th>DOB</th>
+			<th>Sport(s)</th>
+			<th>Actions</th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let emp of emplist">
+			<td>{{emp.name}}</td>
+			<td>{{emp.email}}</td>
+			<td>{{emp.dept}}</td>
+			<td>{{emp.gender}}</td>
+			<td>{{emp.phoneno}}</td>
+			<td>{{emp.dob}}</td>
+			<td>{{emp.sports}}</td>
+			<td> <i class="material-icons marginRight10 glyphStyle"
+			(click)="editEmp(emp)"
+			id = "EditEmp">mode_edit
+			</i> 
+			<i class="material-icons marginRight10 glyphStyle"
+			(click)="deleteEmp(emp.id)"
+			id = "DeleteEmp">delete
+			</i>
+			<a id = "downloadIco" href="app/image.jpg" download><i class = "material-icons downloadIcon">trending_flat
+			</i></a>
+			
+		</tr>
+		</tbody>
+		
+	</table>
+</div>
+</div>
