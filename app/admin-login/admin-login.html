@@ -5,7 +5,7 @@
 	    </div>
 	</nav>
 	<div class = "offset-s4 col s6">
-		<div [hidden] = "forgotPwd" class="col s8">
+		<div *ngIf = "!forgotPwd ; else showFrgtPwd" class="col s8">
 			<h5 class="header">Admin login</h5>
 		<div *ngIf = "loginStatus">
 			<label for="" style="color : red">Login failed, Invalid credidentials</label>
@@ -65,10 +65,10 @@
 			</div>
 		</form>
 		</div>
-		<div [hidden] = "!forgotPwd" class="col s8">
+		<ng-template #showFrgtPwd>
 			<h5 class="header">Enter Your registered Email ID</h5>
-			<form #adminFForm="ngForm" novalidate class="card horizontal" (ngSubmit) = "adminFForm.valid ? adminDetails() : 'return false'">
-				<div class="card-content col s12">
+			<form #adminFForm="ngForm" novalidate class="card horizontal col s8" (ngSubmit) = "adminFForm.valid ? adminDetails() : 'return false'">
+				<div class="card-content">
 					<div class="col s12">
 						<label for="">Email ID</label>
 						<input type="email"
@@ -89,6 +89,6 @@
 					<a class="waves-effect waves-teal btn-flat" (click) = "backToLogin()">Back to Login</a>
 				</div>
 			</form>
-		</div>
+		</ng-template>
 	</div>
 </div>

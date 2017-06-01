@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AddEmpModel } from '../models/add-emp.model';
-import { Headers, Http } from '@angular/http';
 import { AppHttpService } from '../http.service';
 import { Router } from '@angular/router';
 
@@ -12,7 +11,6 @@ import { Router } from '@angular/router';
 export class EmployeeListComponent implements OnInit {
 	emplist:AddEmpModel;
 	constructor(
-		private http: Http,
 		private httpService: AppHttpService,
 		private router: Router
 		){}

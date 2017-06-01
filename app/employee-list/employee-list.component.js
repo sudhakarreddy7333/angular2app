@@ -8,13 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var http_service_1 = require('../http.service');
-var router_1 = require('@angular/router');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var http_service_1 = require("../http.service");
+var router_1 = require("@angular/router");
 var EmployeeListComponent = (function () {
-    function EmployeeListComponent(http, httpService, router) {
-        this.http = http;
+    function EmployeeListComponent(httpService, router) {
         this.httpService = httpService;
         this.router = router;
     }
@@ -31,14 +30,15 @@ var EmployeeListComponent = (function () {
         this.emplist = this.httpService.deleteEmp(empId);
         Materialize.toast('Employee Deleted successfully', 4000);
     };
-    EmployeeListComponent = __decorate([
-        core_1.Component({
-            selector: 'employee-list',
-            templateUrl: './employee-list.html',
-        }), 
-        __metadata('design:paramtypes', [http_1.Http, http_service_1.AppHttpService, router_1.Router])
-    ], EmployeeListComponent);
     return EmployeeListComponent;
 }());
+EmployeeListComponent = __decorate([
+    core_1.Component({
+        selector: 'employee-list',
+        templateUrl: './employee-list.html',
+    }),
+    __metadata("design:paramtypes", [http_service_1.AppHttpService,
+        router_1.Router])
+], EmployeeListComponent);
 exports.EmployeeListComponent = EmployeeListComponent;
 //# sourceMappingURL=employee-list.component.js.map

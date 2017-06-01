@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var AdminDetails = (function () {
     function AdminDetails(username, password) {
         if (username === void 0) { username = ""; }
@@ -52,15 +53,15 @@ var AdminLoginComponent = (function () {
         var newWin = window.open("", null, "height=200,width=400,status=yes,toolbar=no,menubar=no,location=no");
         newWin.document.write("<button id = 'closeWin' onClick = 'window.close()'>Close Window</button>");
     };
-    AdminLoginComponent = __decorate([
-        core_1.Component({
-            selector: 'admin-login',
-            templateUrl: './admin-login.html',
-            styleUrls: ['./admin-login.css']
-        }), 
-        __metadata('design:paramtypes', [router_1.Router])
-    ], AdminLoginComponent);
     return AdminLoginComponent;
 }());
+AdminLoginComponent = __decorate([
+    core_1.Component({
+        selector: 'admin-login',
+        templateUrl: './admin-login.html',
+        styleUrls: ['./admin-login.css']
+    }),
+    __metadata("design:paramtypes", [router_1.Router])
+], AdminLoginComponent);
 exports.AdminLoginComponent = AdminLoginComponent;
 //# sourceMappingURL=admin-login.component.js.map

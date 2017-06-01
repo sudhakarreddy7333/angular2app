@@ -11,17 +11,12 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 import {AppRoutingModule} from './routing-module';
 
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
-
-
 @NgModule({
   imports:      [ 
 	  BrowserModule,
 	  FormsModule,
 	  AppRoutingModule,
-	  HttpModule,
-	  InMemoryWebApiModule.forRoot(InMemoryDataService),
+	  HttpModule
    ],
   declarations: [ 
 	  AppComponent,

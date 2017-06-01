@@ -8,21 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-require('rxjs/add/operator/toPromise');
-var add_emp_model_1 = require('../models/add-emp.model');
-var http_service_1 = require('../http.service');
-var common_1 = require('@angular/common');
-var router_1 = require('@angular/router');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+require("rxjs/add/operator/toPromise");
+var add_emp_model_1 = require("../models/add-emp.model");
+var http_service_1 = require("../http.service");
+var common_1 = require("@angular/common");
+var router_1 = require("@angular/router");
 var AddEmployeeComponent = (function () {
-    function AddEmployeeComponent(http, httpService, location, route, router) {
-        this.http = http;
+    function AddEmployeeComponent(httpService, location, route, router) {
         this.httpService = httpService;
         this.location = location;
         this.route = route;
         this.router = router;
-        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.num = 0;
     }
     AddEmployeeComponent.prototype.ngOnInit = function () {
@@ -82,14 +80,17 @@ var AddEmployeeComponent = (function () {
             }
         }
     };
-    AddEmployeeComponent = __decorate([
-        core_1.Component({
-            selector: 'add-employees',
-            templateUrl: './add-employees.html'
-        }), 
-        __metadata('design:paramtypes', [http_1.Http, http_service_1.AppHttpService, common_1.Location, router_1.ActivatedRoute, router_1.Router])
-    ], AddEmployeeComponent);
     return AddEmployeeComponent;
 }());
+AddEmployeeComponent = __decorate([
+    core_1.Component({
+        selector: 'add-employees',
+        templateUrl: './add-employees.html'
+    }),
+    __metadata("design:paramtypes", [http_service_1.AppHttpService,
+        common_1.Location,
+        router_1.ActivatedRoute,
+        router_1.Router])
+], AddEmployeeComponent);
 exports.AddEmployeeComponent = AddEmployeeComponent;
 //# sourceMappingURL=add-employees.component.js.map

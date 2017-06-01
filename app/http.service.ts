@@ -1,9 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http,Headers} from '@angular/http';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
-
 import { AddEmpModel } from './models/add-emp.model';
 
 @Injectable()
@@ -12,9 +7,7 @@ export class AppHttpService{
 	empDetails:AddEmpModel[] = [];
 	detailsObjct:AddEmpModel;
 
-	constructor(private http: Http){}
-
-	headers = new Headers({ 'Content-Type': 'application/json' });
+	constructor(){}
 
 	addemployees(emp:AddEmpModel){
 		this.empDetails.push(emp);
@@ -52,7 +45,4 @@ export class AppHttpService{
     	})
     	return this.empDetails;
     }
-	}
-
-
 }

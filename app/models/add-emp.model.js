@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var AddEmpModel = (function () {
     function AddEmpModel(name, email, dept, gender, phoneno, dob, id, sports) {
         if (name === void 0) { name = ""; }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { AddEmpModel } from '../models/add-emp.model';
 import { AppHttpService } from '../http.service';
@@ -12,10 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 
 export class AddEmployeeComponent implements OnInit{
-	private headers = new Headers({'Content-Type': 'application/json'});
-
 	constructor(
-		private http: Http,
 		private httpService: AppHttpService,
 		private location: Location,
 		private route: ActivatedRoute,
@@ -23,8 +19,8 @@ export class AddEmployeeComponent implements OnInit{
 		){}
 	newEmp: AddEmpModel;
 	num:number = 0;
-	curRoute:String;
-	EmpType:String;
+	curRoute:String | null;
+	EmpType:String | null;
 
 	ngOnInit(){
 		this.route.params.subscribe(params => this.curRoute = params['id']);
@@ -58,8 +54,6 @@ export class AddEmployeeComponent implements OnInit{
     	this.newEmp.dept = $("#dept").val();
 	}
 
-	
-
 	newEmpDetails(){
 
 		var $input = $('.datepicker').pickadate()
@@ -67,7 +61,6 @@ export class AddEmployeeComponent implements OnInit{
 			this.newEmp.dob = picker.get();
 			this.newEmp.sports = $('#favSport').val();
 			picker.clear();
-
 		if(this.curRoute === 'add'){
 			this.num = this.num+1;
 			this.newEmp.id =this.num;
