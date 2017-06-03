@@ -15,6 +15,7 @@ var add_emp_model_1 = require("../models/add-emp.model");
 var http_service_1 = require("../http.service");
 var common_1 = require("@angular/common");
 var router_1 = require("@angular/router");
+var core_2 = require("@angular/core");
 var AddEmployeeComponent = (function () {
     function AddEmployeeComponent(httpService, location, route, router) {
         this.httpService = httpService;
@@ -67,6 +68,9 @@ var AddEmployeeComponent = (function () {
             if (this.httpService.addemployees(this.newEmp) === "success") {
                 console.log("success");
                 this.newEmp = new add_emp_model_1.AddEmpModel();
+                $("#dept").val(this.newEmp.dept);
+                $("#favSport").val(this.newEmp.sports);
+                $('#dept,#favSport').material_select();
                 Materialize.toast('Employee added successfully', 4000);
             }
         }
@@ -82,6 +86,10 @@ var AddEmployeeComponent = (function () {
     };
     return AddEmployeeComponent;
 }());
+__decorate([
+    core_2.ViewChild('fileUploaded'),
+    __metadata("design:type", Object)
+], AddEmployeeComponent.prototype, "inputFile", void 0);
 AddEmployeeComponent = __decorate([
     core_1.Component({
         selector: 'add-employees',

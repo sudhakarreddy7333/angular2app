@@ -4,6 +4,7 @@ import { AddEmpModel } from '../models/add-emp.model';
 import { AppHttpService } from '../http.service';
 import { Location } from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
+import { ViewChild } from '@angular/core';
 
 @Component({
 	selector : 'add-employees',
@@ -21,6 +22,8 @@ export class AddEmployeeComponent implements OnInit{
 	num:number = 0;
 	curRoute:String | null;
 	EmpType:String | null;
+	@ViewChild('fileUploaded')
+	inputFile: any;
 
 	ngOnInit(){
 		this.route.params.subscribe(params => this.curRoute = params['id']);
@@ -67,6 +70,9 @@ export class AddEmployeeComponent implements OnInit{
 			if(this.httpService.addemployees(this.newEmp) === "success"){
 				console.log("success");
 				this.newEmp = new AddEmpModel();
+				$("#dept").val(this.newEmp.dept);
+				$("#favSport").val(this.newEmp.sports);
+				$('#dept,#favSport').material_select();
 				 Materialize.toast('Employee added successfully', 4000)
 			}
 		}

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 
 export class EmployeeListComponent implements OnInit {
-	emplist:AddEmpModel;
+	emplist:AddEmpModel[];
 	constructor(
 		private httpService: AppHttpService,
 		private router: Router

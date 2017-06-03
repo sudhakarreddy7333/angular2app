@@ -95,22 +95,21 @@
 			<div class="file-field input-field">
 			      <div class="btn orange darken-3">
 			        <span>Upload Certificates</span>
-			        <input type="file" multiple  id = "uploadFile" required>
+			        <input type="file" multiple #fileUploaded id = "uploadFile" required>
 			      </div>
 			      <div class="file-path-wrapper">
-			        <input class="file-path validate" type="text" placeholder="Upload one or more certificates">
+			        <input class="file-path" type="text" placeholder="Upload one or more certificates">
 			      </div>
     		</div>
 
 		</div>
     		<div class="row col s12">
-				<input type="checkbox" id = "chkbx" required>
+				<input type="checkbox" ([ngModel]) = "checkBoxVal" id = "chkbx" required>
 				<label for="chkbx">Terms and conditions </label><a href="https://google.com" target="_blank"> are here</a> 
 			</div> <br>
 			<div class="row col s12">
 				<button type="submit" class="btn btn-primary">{{EmpType}}</button>
 			</div>
-			
 		</form>
 	</div>
 </div>
