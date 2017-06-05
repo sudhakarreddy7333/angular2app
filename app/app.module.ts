@@ -1,7 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
@@ -15,8 +14,7 @@ import {AppRoutingModule} from './routing-module';
   imports:      [ 
 	  BrowserModule,
 	  FormsModule,
-	  AppRoutingModule,
-	  HttpModule
+	  AppRoutingModule
    ],
   declarations: [ 
 	  AppComponent,

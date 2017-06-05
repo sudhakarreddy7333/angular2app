@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import 'rxjs/add/operator/toPromise';
 import { AddEmpModel } from '../models/add-emp.model';
 import { AppHttpService } from '../http.service';
-import { Location } from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
-import { ViewChild } from '@angular/core';
 
 @Component({
 	selector : 'add-employees',
@@ -14,7 +11,6 @@ import { ViewChild } from '@angular/core';
 export class AddEmployeeComponent implements OnInit{
 	constructor(
 		private httpService: AppHttpService,
-		private location: Location,
 		private route: ActivatedRoute,
 		private router: Router
 		){}
@@ -22,8 +18,6 @@ export class AddEmployeeComponent implements OnInit{
 	num:number = 0;
 	curRoute:String | null;
 	EmpType:String | null;
-	@ViewChild('fileUploaded')
-	inputFile: any;
 
 	ngOnInit(){
 		this.route.params.subscribe(params => this.curRoute = params['id']);
