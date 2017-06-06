@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var http_service_1 = require("../http.service");
 var AdminDetails = (function () {
     function AdminDetails(username, password) {
         if (username === void 0) { username = ""; }
@@ -22,8 +23,9 @@ var AdminDetails = (function () {
 }());
 ;
 var AdminLoginComponent = (function () {
-    function AdminLoginComponent(router) {
+    function AdminLoginComponent(router, http) {
         this.router = router;
+        this.http = http;
         this.forgotPwd = false;
         this.details = new AdminDetails();
         this.loginStatus = false;
@@ -61,7 +63,8 @@ AdminLoginComponent = __decorate([
         templateUrl: './admin-login.html',
         styleUrls: ['./admin-login.css']
     }),
-    __metadata("design:paramtypes", [router_1.Router])
+    __metadata("design:paramtypes", [router_1.Router,
+        http_service_1.AppHttpService])
 ], AdminLoginComponent);
 exports.AdminLoginComponent = AdminLoginComponent;
 //# sourceMappingURL=admin-login.component.js.map

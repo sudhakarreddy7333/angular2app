@@ -9,6 +9,11 @@ import { AppHttpService } from './http.service';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 import {AppRoutingModule} from './routing-module';
+import { enableProdMode } from '@angular/core';
+
+if (!/localhost/.test(document.location.host)) {
+  enableProdMode();
+}
 
 @NgModule({
   imports:      [ 

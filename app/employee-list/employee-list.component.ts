@@ -16,7 +16,6 @@ export class EmployeeListComponent implements OnInit {
 		){}
 	ngOnInit(){
 		this.emplist = this.httpService.getEmployees();
-		$('.tooltipped').tooltip({delay: 50});
 	}
 	editEmp(emp:AddEmpModel){
 		this.httpService.detailsObj(emp);
@@ -25,7 +24,5 @@ export class EmployeeListComponent implements OnInit {
 	}
 	deleteEmp(empId:number){
 		this.emplist = this.httpService.deleteEmp(empId);
-		Materialize.toast('Employee Deleted successfully', 4000)
 	}
-
 }

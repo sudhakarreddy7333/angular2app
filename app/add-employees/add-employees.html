@@ -1,55 +1,62 @@
-<div class="row col s4">
-<nav>
-<div class="nav-content">
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a class="active" routerLink="/addemployee/add">Add Employee</a></li>
-        <li class="tab"><a  routerLink="/employeelist">Employee List</a></li>
+<nav class="navbar navbar-default">
+    <a href="#!" class="navbar-brand center">Employee Directory</a>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul  class="nav navbar-nav">
+        <li><a routerLink="/addemployee/add">Add Employee</a></li>
+        <li><a routerLink="/employeelist">Employee List</a></li>
       </ul>
-    </div>	
+      </div>
 </nav>
-<div class="row offset-s1 col s6">
+<div class="row col-lg-offset-1 col-lg-10">
+<div>
 <h4 class="row col-lg-10">{{EmpType}}</h4>
 </div>
 
-	<div class="col offset-s1 col s10">
+	<div>
 		<form #addEmp = "ngForm" (ngSubmit) = "newEmpDetails()">
 
-		<div class="row col s6">
-			<div>
+		<div class="row col-lg-6">
+			<div class="form-group">
 			 <label for="">Name</label>
 				<input type="text"
 				 name = "empname"
+				 class="form-control" 
 				 placeholder = "Enter name"
 				 [(ngModel)] = "newEmp.name"
 				 id = "name"
-				 class="input-field"
 				 required>
 			</div>
-			<div>
+			<div class="form-group">
 				<label for="">Email</label>
-				<input class="form-control" type="email"
-				name = "empEmail"
+				<input class="form-control" 
+				 type="email"
+				 name = "empEmail"
 				 [(ngModel)] = "newEmp.email"
 				 id = "email"
-				 class="input-field"
 				 placeholder = "Enter Email"
 				 required>
-			</div> <br>
-			<div class="input-field">
+			</div>
+			<div class="form-group">
+			<label for="">Department</label>
 				<select name="dept" 
 				id = "dept"
+				class="form-control"
+				required 
 				[(ngModel)] = "newEmp.dept">
 					<option value="" disabled>Select option</option>	
 					<option value="IT">IT</option>
 					<option value="ECE">ECE</option>
 					<option value="EEE">EEE</option>
 				</select>
-				<label for="">Department</label>
-			</div> <br>
-			<div class="input-field">
+				
+			</div>
+			<div class="form-group">
+			<label>Favourite Sports</label>
 			    <select multiple
 			    name = "sports"
 			    id = "favSport"
+			    class="form-control"
+			    required 
 			    [(ngModel)] = "newEmp.sports"
 
 			    >
@@ -59,55 +66,53 @@
 			        <option value="Volleyball">Volleyball</option>
 			        <option value="Chess">Chess</option>
 			    </select>
-			    <label>Favourite Sports</label>
+			    
   			</div>
 		</div>
-		<div class="row col s6">
-			<label for="">Gender</label>
-			<div class="input-field">
-				<input type="radio" name="group1" id = "male" value="male" [(ngModel)] = "newEmp.gender" required>
-				<label for="male">Male</label>
-				<input type="radio" name="group1" id = "female" value="female" [(ngModel)] = "newEmp.gender">
-				<label for="female">Female</label>
-			</div> <br>
+		<div class="col col-lg-6">
+			
+			<div class="form-group">
+			<label for="">Gender</label> <br>
+				<label class="radio-inline">
+  					<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male" required> Male
+				</label>
+				<label class="radio-inline">
+  					<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female"> Female
+				</label>
+			</div>
 
-			<div>
+			<div class="form-group">
 				<label for="">Phone Number</label>
 				<input  
 				type="number" 
 				name = "number" 
 				[(ngModel)] = "newEmp.phoneno"
-				class="input-field"
+				class="form-control"
 				placeholder = "Enter Phone Number"
 				required>
-			</div> <br>
+			</div>
 			<label for="">DOB</label>
-			<div>
+			<div class="form-group">
 				<input 
 				type="date"
-				class="input-field datepicker" 
+				class="form-control" 
 				name = "dob"
 				placeholder = "Enter your DOB" 
 				[(ngModel)] = "newEmp.dob"
 				required>
-			</div> <br>
+			</div>
 
-			<div class="file-field input-field">
-			      <div class="btn orange darken-3">
-			        <span>Upload Certificates</span>
-			        <input type="file" multiple #fileUploaded id = "uploadFile" required>
-			      </div>
-			      <div class="file-path-wrapper">
-			        <input class="file-path" type="text" placeholder="Upload one or more certificates">
-			      </div>
+			<div class="form-group">
+			<label>Upload Certificates</label>
+			        <input type="file" multiple id = "uploadFile" required>
     		</div>
 
 		</div>
-    		<div class="row col s12">
+    		<div class="row col-lg-12">
 				<input type="checkbox" ([ngModel]) = "checkBoxVal" id = "chkbx" required>
 				<label for="chkbx">Terms and conditions </label><a href="https://google.com" target="_blank"> are here</a> 
 			</div> <br>
-			<div class="row col s12">
+			<div class="row col-lg-12">
 				<button type="submit" class="btn btn-primary">{{EmpType}}</button>
 			</div>
 		</form>

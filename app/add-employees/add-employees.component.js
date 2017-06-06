@@ -24,50 +24,15 @@ var AddEmployeeComponent = (function () {
         var _this = this;
         this.route.params.subscribe(function (params) { return _this.curRoute = params['id']; });
         this.newEmp = (this.httpService.getDetails()) ? this.httpService.getDetails() : new add_emp_model_1.AddEmpModel();
-        $('select').material_select();
-        $('.datepicker').pickadate({
-            selectMonths: true,
-            selectYears: 15,
-            format: 'dd/mm/yyyy' // Creates a dropdown of 15 years to control year
-        });
-        $('.tooltipped').tooltip({ delay: 50 });
         this.EmpType = (this.curRoute === 'add') ? "Add Employee" : "Update Employee";
-        if (this.curRoute === 'edit') {
-            //$('#dept').val(this.newEmp.dept);
-            $("#dept").find('option[value=' + this.newEmp.dept + ']').prop('selected', true);
-            // re-initialize material-select
-            for (var _i = 0, _a = this.newEmp.sports; _i < _a.length; _i++) {
-                var x = _a[_i];
-                $("#favSport").find('option[value=' + x.split(':')[1] + ']').prop('selected', true);
-            }
-            ;
-            $('#dept,#favSport').material_select();
-        }
-    };
-    AddEmployeeComponent.prototype.ngAfterViewInit = function () {
-        $("#dept").val(this.newEmp.dept);
-        $("#favSport").val(this.newEmp.sports);
-        $("#dept").material_select(this.change.bind(this));
-    };
-    AddEmployeeComponent.prototype.change = function () {
-        this.newEmp.dept = $("#dept").val();
     };
     AddEmployeeComponent.prototype.newEmpDetails = function () {
-        var $input = $('.datepicker').pickadate();
-        var picker = $input.pickadate('picker');
-        this.newEmp.dob = picker.get();
-        this.newEmp.sports = $('#favSport').val();
-        picker.clear();
         if (this.curRoute === 'add') {
             this.num = this.num + 1;
             this.newEmp.id = this.num;
             if (this.httpService.addemployees(this.newEmp) === "success") {
                 console.log("success");
                 this.newEmp = new add_emp_model_1.AddEmpModel();
-                $("#dept").val(this.newEmp.dept);
-                $("#favSport").val(this.newEmp.sports);
-                $('#dept,#favSport').material_select();
-                Materialize.toast('Employee added successfully', 4000);
             }
         }
         else if (this.curRoute === 'edit') {
@@ -75,7 +40,6 @@ var AddEmployeeComponent = (function () {
                 console.log("success");
                 this.newEmp = new add_emp_model_1.AddEmpModel();
                 this.httpService.clearDetails();
-                Materialize.toast('Employee updated successfully', 4000);
                 this.router.navigateByUrl('/employeelist');
             }
         }

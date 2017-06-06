@@ -1,15 +1,15 @@
-<div class="row">
-<nav>
-	<div class="nav-content">
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a class="active" routerLink="/addemployee/add">Add Employees</a></li>
-        <li class="tab"><a  routerLink="/employeelist">Employee List</a></li>
+<nav class="navbar navbar-default">
+    <a href="#!" class="navbar-brand center">Employee Directory</a>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul  class="nav navbar-nav">
+        <li><a routerLink="/addemployee/add">Add Employee</a></li>
+        <li><a routerLink="/employeelist">Employee List</a></li>
       </ul>
-    </div>	
+      </div>
 </nav>
-<div class="row offset-s1 col s10">
+<div class="row col-lg-offset-1 col-lg-10">
 	<h4>Employee list</h4>
-	<table class="highlight responsive-table bordered">
+	<table class="table table-responsive">
 		<thead>
 			<tr>
 			<th>Name</th>
@@ -31,20 +31,19 @@
 			<td>{{emp.phoneno}}</td>
 			<td>{{emp.dob}}</td>
 			<td>{{emp.sports}}</td>
-			<td> <i class="material-icons marginRight10 glyphStyle"
+			<td> <span class="glyphicon glyphicon-pencil marginRight10 glyphStyle"
 			(click)="editEmp(emp)"
-			id = "EditEmp">mode_edit
-			</i> 
-			<i class="material-icons marginRight10 glyphStyle"
+			id = "EditEmp">
+			</span> 
+			<span class="glyphicon glyphicon-trash marginRight10 glyphStyle"
 			(click)="deleteEmp(emp.id)"
-			id = "DeleteEmp">delete
-			</i>
-			<a id = "downloadIco" href="app/image.jpg" download><i class = "material-icons downloadIcon">trending_flat
-			</i></a>
+			id = "DeleteEmp">
+			</span>
+			<a id = "downloadIco" href="app/image.jpg" download><span class = "glyphicon glyphicon-download-alt">
+			</span></a>
 			
 		</tr>
 		</tbody>
 		
 	</table>
-</div>
 </div>

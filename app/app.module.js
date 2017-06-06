@@ -15,6 +15,10 @@ var add_employees_component_1 = require("./add-employees/add-employees.component
 var http_service_1 = require("./http.service");
 var employee_list_component_1 = require("./employee-list/employee-list.component");
 var routing_module_1 = require("./routing-module");
+var core_2 = require("@angular/core");
+if (!/localhost/.test(document.location.host)) {
+    core_2.enableProdMode();
+}
 var AppModule = (function () {
     function AppModule() {
     }

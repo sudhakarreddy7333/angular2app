@@ -19,7 +19,6 @@ var EmployeeListComponent = (function () {
     }
     EmployeeListComponent.prototype.ngOnInit = function () {
         this.emplist = this.httpService.getEmployees();
-        $('.tooltipped').tooltip({ delay: 50 });
     };
     EmployeeListComponent.prototype.editEmp = function (emp) {
         this.httpService.detailsObj(emp);
@@ -28,7 +27,6 @@ var EmployeeListComponent = (function () {
     };
     EmployeeListComponent.prototype.deleteEmp = function (empId) {
         this.emplist = this.httpService.deleteEmp(empId);
-        Materialize.toast('Employee Deleted successfully', 4000);
     };
     return EmployeeListComponent;
 }());
