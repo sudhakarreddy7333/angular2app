@@ -25,13 +25,14 @@ export class AddEmployeeComponent implements OnInit{
 		this.EmpType = (this.curRoute === 'add') ? "Add Employee" : "Update Employee";
 	}
 
-	newEmpDetails(){
+	newEmpDetails(addEmp){
 		if(this.curRoute === 'add'){
 			this.num = this.num+1;
 			this.newEmp.id =this.num;
 			if(this.httpService.addemployees(this.newEmp) === "success"){
 				console.log("success");
 				this.newEmp = new AddEmpModel();
+				addEmp.resetForm();
 			}
 		}
 		else if(this.curRoute === 'edit'){

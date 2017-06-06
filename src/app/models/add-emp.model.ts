@@ -7,6 +7,7 @@ export class AddEmpModel{
 		public phoneno:number = null,
 		public dob:string = "",
 		public id:number = null,
-		public sports:any[] = null
+		public sports:any[] = null,
+		public termsCondts:boolean = false
 		){}
 }

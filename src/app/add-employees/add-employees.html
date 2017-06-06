@@ -13,7 +13,7 @@
 </div>
 
 	<div>
-		<form #addEmp = "ngForm" (ngSubmit) = "newEmpDetails()">
+		<form #addEmp = "ngForm" (ngSubmit) = "addEmp.valid ? newEmpDetails(addEmp) : 'return false'">
 
 		<div class="row col-lg-6">
 			<div class="form-group">
@@ -24,7 +24,13 @@
 				 placeholder = "Enter name"
 				 [(ngModel)] = "newEmp.name"
 				 id = "name"
-				 required>
+				 required
+				 minlength="2"
+				 #empname = "ngModel">
+				 <div *ngIf="addEmp.submitted && empname.errors" class="error">
+					          <div [hidden]="!empname.errors.required">Name is required</div>
+					          <div [hidden]="!empname.errors.minlength">Username should be atleast 2 characters</div>
+				 </div>
 			</div>
 			<div class="form-group">
 				<label for="">Email</label>
@@ -34,21 +40,29 @@
 				 [(ngModel)] = "newEmp.email"
 				 id = "email"
 				 placeholder = "Enter Email"
-				 required>
+				 required
+				 #empEmail = "ngModel">
+				  <div *ngIf="addEmp.submitted && empEmail.errors" class="error">
+					          <div [hidden]="!empEmail.errors.required">Email is required</div>
+					          <div [hidden]="!empEmail.errors.email">Enter valid Email ID</div>
+				 </div>
 			</div>
 			<div class="form-group">
 			<label for="">Department</label>
 				<select name="dept" 
 				id = "dept"
 				class="form-control"
-				required 
+				required
+				#dept = "ngModel" 
 				[(ngModel)] = "newEmp.dept">
 					<option value="" disabled>Select option</option>	
 					<option value="IT">IT</option>
 					<option value="ECE">ECE</option>
 					<option value="EEE">EEE</option>
 				</select>
-				
+				<div *ngIf="addEmp.submitted && dept.errors" class="error">
+					          <div [hidden]="!dept.errors.required">Select Department</div>
+				 </div>
 			</div>
 			<div class="form-group">
 			<label>Favourite Sports</label>
@@ -57,9 +71,7 @@
 			    id = "favSport"
 			    class="form-control"
 			    required 
-			    [(ngModel)] = "newEmp.sports"
-
-			    >
+			    [(ngModel)] = "newEmp.sports">
 			    	<option value="" disabled>Select option(s)</option>
 			        <option value="Cricket">Cricket</option>
 			        <option value="Football">Football</option>
@@ -74,11 +86,24 @@
 			<div class="form-group">
 			<label for="">Gender</label> <br>
 				<label class="radio-inline">
-  					<input type="radio" name="inlineRadioOptions" [(ngModel)]="newEmp.gender" id="inlineRadio1" value="Male" required> Male
+  					<input type="radio" 
+					  #inlineRadioOptions = "ngModel" 
+					  name="inlineRadioOptions" 
+					  [(ngModel)]="newEmp.gender" 
+					  id="inlineRadio1" 
+					  value="Male" required> Male
 				</label>
 				<label class="radio-inline">
-  					<input type="radio" name="inlineRadioOptions" [(ngModel)]="newEmp.gender" id="inlineRadio2" value="Female"> Female
+  					<input type="radio"
+					 #inlineRadioOptions = "ngModel" 
+					 name="inlineRadioOptions" 
+					 [(ngModel)]="newEmp.gender" 
+					 id="inlineRadio2" 
+					 value="Female"> Female
 				</label>
+				<div *ngIf="addEmp.submitted && inlineRadioOptions.errors" class="error">
+					          <div [hidden]="!inlineRadioOptions.errors.required">Select Gender</div>
+				 </div>
 			</div>
 
 			<div class="form-group">
@@ -99,7 +124,11 @@
 				name = "dob"
 				placeholder = "Enter your DOB" 
 				[(ngModel)] = "newEmp.dob"
+				#dob = "ngModel"
 				required>
+				<div *ngIf="addEmp.submitted && dob.errors" class="error">
+					          <div [hidden]="!dob.errors.required">Select DOB</div>
+				 </div>
 			</div>
 
 			<div class="form-group">
@@ -109,8 +138,17 @@
 
 		</div>
     		<div class="row col-lg-12">
-				<input type="checkbox" id = "chkbx" required>
+				<input type="checkbox" 
+				id = "chkbx"
+				name = "termsConds" 
+				required
+				[(ngModel)] = "newEmp.termsCondts"
+				#termsConds = "ngModel"
+				>
 				<label for="chkbx">Terms and conditions </label><a href="https://google.com" target="_blank"> are here</a> 
+				<div *ngIf="addEmp.submitted && termsConds.errors" class="error">
+					          <div [hidden]="!termsConds.errors.required">Select Terms and conditions</div>
+				 </div>
 			</div> <br>
 			<div class="row col-lg-12">
 				<button type="submit" class="btn btn-primary">{{EmpType}}</button>
