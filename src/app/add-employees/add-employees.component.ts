@@ -18,6 +18,7 @@ export class AddEmployeeComponent implements OnInit{
 	num:number = 0;
 	curRoute:String | null;
 	EmpType:String | null;
+	addEmpStatus:boolean = false;
 
 	ngOnInit(){
 		this.route.params.subscribe(params => this.curRoute = params['id']);
@@ -32,6 +33,7 @@ export class AddEmployeeComponent implements OnInit{
 			if(this.httpService.addemployees(this.newEmp) === "success"){
 				console.log("success");
 				this.newEmp = new AddEmpModel();
+				this.addEmpStatus = true;
 				addEmp.resetForm();
 			}
 		}

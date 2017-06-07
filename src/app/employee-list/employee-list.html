@@ -46,4 +46,18 @@
 		</tbody>
 		
 	</table>
+
+<modal #modal>
+    <modal-header>
+        <h4 class="modal-title">Delete Employee</h4>
+    </modal-header>
+    <modal-body>
+        Are you sure you want to delete?
+    </modal-body>
+    <modal-footer>
+    	<button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="conFDeleteEmp()">Ok</button>
+    </modal-footer>
+</modal>
+		
 </div>

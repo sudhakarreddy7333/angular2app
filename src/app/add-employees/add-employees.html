@@ -8,8 +8,11 @@
       </div>
 </nav>
 <div class="row col-lg-offset-1 col-lg-10">
+<div [hidden] = "!addEmpStatus" id = "addEmpSts" class="col-lg-6 alert alert-success">
+	<span>Employee added successfully</span>
+</div>
 <div>
-<h4 class="row col-lg-10">{{EmpType}}</h4>
+	<h4 class="row col-lg-10">{{EmpType}}</h4>
 </div>
 
 	<div>

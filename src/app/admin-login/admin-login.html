@@ -6,8 +6,8 @@
 	<div class = "col-lg-offset-4 col-lg-4">
 		<div *ngIf = "!forgotPwd ; else showFrgtPwd" class="col s8">
 			<h5 class="header">Admin login</h5>
-		<div *ngIf = "loginStatus">
-			<label for="" style="color : red">Login failed, Invalid credidentials</label>
+		<div class="alert alert-danger" *ngIf = "loginStatus">
+			<span>Login failed, incorrect credidentials</span>
 		</div>
 		<form #adminForm="ngForm" novalidate (ngSubmit) = "adminForm.valid ? adminDetails() : 'return false'">
 			<div>
@@ -89,4 +89,5 @@
 				</div>
 			</form>
 		</ng-template>
+		
 	</div>

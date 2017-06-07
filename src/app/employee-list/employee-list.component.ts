@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { AddEmpModel } from '../models/add-emp.model';
 import { AppHttpService } from '../http.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 
 export class EmployeeListComponent implements OnInit {
 	emplist:AddEmpModel[];
+	emplId:number;
+	@ViewChild('modal') deletemodal;
 	constructor(
 		private httpService: AppHttpService,
 		private router: Router
@@ -23,6 +25,11 @@ export class EmployeeListComponent implements OnInit {
 		//this.emplist = this.httpService.editEmp(emp);
 	}
 	deleteEmp(empId:number){
-		this.emplist = this.httpService.deleteEmp(empId);
+		this.deletemodal.open();
+		this.emplId = empId;
+	}
+	conFDeleteEmp(){
+		this.emplist = this.httpService.deleteEmp(this.emplId);
+		this.deletemodal.close();
 	}
 }

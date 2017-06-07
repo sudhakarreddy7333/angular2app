@@ -10,6 +10,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 import {AppRoutingModule} from './routing-module';
 import { enableProdMode } from '@angular/core';
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 if (!/localhost/.test(document.location.host)) {
   enableProdMode();
@@ -19,7 +20,8 @@ if (!/localhost/.test(document.location.host)) {
   imports:      [ 
 	  BrowserModule,
 	  FormsModule,
-	  AppRoutingModule
+	  AppRoutingModule,
+	  Ng2Bs3ModalModule 
    ],
   declarations: [ 
 	  AppComponent,
