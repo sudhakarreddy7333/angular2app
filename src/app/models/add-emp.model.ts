@@ -8,6 +8,7 @@ export class AddEmpModel{
 		public dob:string = "",
 		public id:number = null,
 		public sports:any[] = null,
-		public termsCondts:boolean = false
+		public termsCondts:boolean = false,
+		public state:string[] = null
 		){}
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="card padding5 navbar navbar-default">
     <a href="#!" class="navbar-brand center">Employee Directory</a>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       </div>
@@ -9,7 +9,7 @@
 		<div class="alert alert-danger" *ngIf = "loginStatus">
 			<span>Login failed, incorrect credidentials</span>
 		</div>
-		<form #adminForm="ngForm" novalidate (ngSubmit) = "adminForm.valid ? adminDetails() : 'return false'">
+		<form class="card" #adminForm="ngForm" novalidate (ngSubmit) = "adminForm.valid ? adminDetails() : 'return false'">
 			<div>
 				<div class="card-content">
 					<div class = "form-group">

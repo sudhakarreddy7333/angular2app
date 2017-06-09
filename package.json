@@ -21,7 +21,6 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.26",
     "@types/jquery": "^2.0.46",
     "core-js": "^2.4.1",
     "express": "^4.15.3",
