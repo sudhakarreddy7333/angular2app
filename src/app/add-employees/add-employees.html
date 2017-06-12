@@ -7,7 +7,7 @@
       </ul>
       </div>
 </nav>
-<div class="row col-lg-offset-1 col-lg-10">
+<div class="row col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
 <div [hidden] = "!addEmpStatus" id = "addEmpSts" class="col-lg-6 alert alert-success">
 	<span>Employee added successfully</span>
 </div>
@@ -137,6 +137,15 @@
 			<label>Upload Certificates</label>
 			        <input type="file" multiple id = "uploadFile" required>
     		</div>
+    		<div class = "form-group">
+    			<label for="">State</label>
+    			<input [(ngModel)]="newEmp.state"
+				       [typeahead]="statesComplex"
+				       typeaheadOptionField="name"
+				       placeholder = "Type a state"
+				       name = "state"
+				       class="form-control">
+    		</div>
 
 		</div>
     		<div class="row col-lg-12">
@@ -156,6 +165,6 @@
 				<button type="submit" class="btn">{{EmpType}}</button>
 			</div>
 		</form>
-
+		
 	</div>
 </div>

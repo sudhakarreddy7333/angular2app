@@ -47,4 +47,8 @@ footer{
 .form-group input{
 	box-shadow: none !important;
 }
+.glyphStyle{
+	margin-right: 10px;
+	cursor: pointer;
+}
 
