@@ -5,7 +5,7 @@
 </nav>
 	<div class = "col-lg-offset-4 col-lg-4">
 		<div *ngIf = "!forgotPwd ; else showFrgtPwd" class="col s8">
-			<h5 class="header">Admin login</h5>
+			<h4 class="header" style="text-align : center">Sign In</h4>
 		<div class="alert alert-danger" *ngIf = "loginStatus">
 			<span>Login failed, incorrect credidentials</span>
 		</div>
@@ -41,6 +41,10 @@
 						required
 						minlength = "5"
 						#password = "ngModel">
+						<a class="pull-right" (click) = "fogtPwd()"
+						id = "forgotPwdLink"
+						style="cursor : pointer ; color : #3d3d3d" 
+		          >Forgot password</a>
 						<div *ngIf="password.errors && adminForm.submitted" class="error">
 				          <div [hidden]="!password.errors.required">Password is required</div>
 				          <div [hidden]="!password.errors.minlength">Password should be atleast 5 characters long</div><br>
@@ -49,14 +53,10 @@
 					<button 
 					type="submit"
 					id = "submitAdminDetls"
-					class="btn btn-primary" 
+					class="btn" 
 					>Login</button>
-				</div>
+				</div> <br>
 				<div>
-		          <a (click) = "fogtPwd()"
-						id = "forgotPwdLink"
-						style="cursor : pointer" 
-		          >Forgot password</a> <br>
 		          <a style="cursor:pointer" 
    					(click)='popUpWindow()'>Login from External Resource</a>
 		        </div>
@@ -64,7 +64,7 @@
 		</form>
 		</div>
 		<ng-template #showFrgtPwd>
-			<h5 class="header">Enter Your registered Email ID</h5>
+			<h4 class="header" style="text-align : center">Enter Your registered Email ID</h4>
 			<form #adminFForm="ngForm" novalidate class="card horizontal col s8" (ngSubmit) = "adminFForm.valid ? adminDetails() : 'return false'">
 				<div>
 					<div class="form-group">
