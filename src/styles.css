@@ -38,3 +38,13 @@ footer{
   	padding: 1rem;
   	text-align: center;
 }
+
+.form-control{
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+}
+.form-group input{
+	box-shadow: none !important;
+}
+
