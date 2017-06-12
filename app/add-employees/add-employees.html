@@ -1,0 +1,120 @@
+<nav class="navbar navbar-default">
+    <a href="#!" class="navbar-brand center">Employee Directory</a>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul  class="nav navbar-nav">
+        <li><a routerLink="/addemployee/add">Add Employee</a></li>
+        <li><a routerLink="/employeelist">Employee List</a></li>
+      </ul>
+      </div>
+</nav>
+<div class="row col-lg-offset-1 col-lg-10">
+<div>
+<h4 class="row col-lg-10">{{EmpType}}</h4>
+</div>
+
+	<div>
+		<form #addEmp = "ngForm" (ngSubmit) = "newEmpDetails()">
+
+		<div class="row col-lg-6">
+			<div class="form-group">
+			 <label for="">Name</label>
+				<input type="text"
+				 name = "empname"
+				 class="form-control" 
+				 placeholder = "Enter name"
+				 [(ngModel)] = "newEmp.name"
+				 id = "name"
+				 required>
+			</div>
+			<div class="form-group">
+				<label for="">Email</label>
+				<input class="form-control" 
+				 type="email"
+				 name = "empEmail"
+				 [(ngModel)] = "newEmp.email"
+				 id = "email"
+				 placeholder = "Enter Email"
+				 required>
+			</div>
+			<div class="form-group">
+			<label for="">Department</label>
+				<select name="dept" 
+				id = "dept"
+				class="form-control"
+				required 
+				[(ngModel)] = "newEmp.dept">
+					<option value="" disabled>Select option</option>	
+					<option value="IT">IT</option>
+					<option value="ECE">ECE</option>
+					<option value="EEE">EEE</option>
+				</select>
+				
+			</div>
+			<div class="form-group">
+			<label>Favourite Sports</label>
+			    <select multiple
+			    name = "sports"
+			    id = "favSport"
+			    class="form-control"
+			    required 
+			    [(ngModel)] = "newEmp.sports"
+
+			    >
+			    	<option value="" disabled>Select option(s)</option>
+			        <option value="Cricket">Cricket</option>
+			        <option value="Football">Football</option>
+			        <option value="Volleyball">Volleyball</option>
+			        <option value="Chess">Chess</option>
+			    </select>
+			    
+  			</div>
+		</div>
+		<div class="col col-lg-6">
+			
+			<div class="form-group">
+			<label for="">Gender</label> <br>
+				<label class="radio-inline">
+  					<input type="radio" name="inlineRadioOptions" [(ngModel)]="newEmp.gender" id="inlineRadio1" value="Male" required> Male
+				</label>
+				<label class="radio-inline">
+  					<input type="radio" name="inlineRadioOptions" [(ngModel)]="newEmp.gender" id="inlineRadio2" value="Female"> Female
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label for="">Phone Number</label>
+				<input  
+				type="number" 
+				name = "number" 
+				[(ngModel)] = "newEmp.phoneno"
+				class="form-control"
+				placeholder = "Enter Phone Number"
+				required>
+			</div>
+			<label for="">DOB</label>
+			<div class="form-group">
+				<input 
+				type="date"
+				class="form-control" 
+				name = "dob"
+				placeholder = "Enter your DOB" 
+				[(ngModel)] = "newEmp.dob"
+				required>
+			</div>
+
+			<div class="form-group">
+			<label>Upload Certificates</label>
+			        <input type="file" multiple id = "uploadFile" required>
+    		</div>
+
+		</div>
+    		<div class="row col-lg-12">
+				<input type="checkbox" ([ngModel]) = "checkBoxVal" id = "chkbx" required>
+				<label for="chkbx">Terms and conditions </label><a href="https://google.com" target="_blank"> are here</a> 
+			</div> <br>
+			<div class="row col-lg-12">
+				<button type="submit" class="btn btn-primary">{{EmpType}}</button>
+			</div>
+		</form>
+	</div>
+</div>

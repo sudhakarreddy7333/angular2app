@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Editor configuration, see http://editorconfig.org
+=======
+# http://editorconfig.org
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3
 root = true
 
 [*]
@@ -8,6 +12,18 @@ indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+<<<<<<< HEAD
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+=======
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
+
+# Indentation override
+#[lib/**.js]
+#[{package.json,.travis.yml}]
+#[**/**.js]
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3

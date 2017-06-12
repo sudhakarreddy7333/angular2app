@@ -1,10 +1,14 @@
 {
+<<<<<<< HEAD
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
+=======
+  "rules": {
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3
     "class-name": true,
     "comment-format": [
       true,
@@ -13,17 +17,25 @@
     "curly": true,
     "eofline": true,
     "forin": true,
+<<<<<<< HEAD
     "import-blacklist": [
       true,
       "rxjs"
     ],
     "import-spacing": true,
+=======
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3
     "indent": [
       true,
       "spaces"
     ],
+<<<<<<< HEAD
     "interface-over-type-literal": true,
     "label-position": true,
+=======
+    "label-position": true,
+    "label-undefined": true,
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3
     "max-line-length": [
       true,
       140
@@ -46,6 +58,7 @@
     ],
     "no-construct": true,
     "no-debugger": true,
+<<<<<<< HEAD
     "no-duplicate-super": true,
     "no-empty": false,
     "no-empty-interface": true,
@@ -63,6 +76,20 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
+=======
+    "no-duplicate-key": true,
+    "no-duplicate-variable": true,
+    "no-empty": false,
+    "no-eval": true,
+    "no-inferrable-types": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": false,
+    "no-switch-case-fall-through": true,
+    "no-trailing-whitespace": true,
+    "no-unused-expression": true,
+    "no-unused-variable": true,
+    "no-unreachable": true,
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
@@ -73,7 +100,10 @@
       "check-else",
       "check-whitespace"
     ],
+<<<<<<< HEAD
     "prefer-const": true,
+=======
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3
     "quotemark": [
       true,
       "single"
@@ -96,8 +126,11 @@
         "variable-declaration": "nospace"
       }
     ],
+<<<<<<< HEAD
     "typeof-compare": true,
     "unified-signatures": true,
+=======
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3
     "variable-name": false,
     "whitespace": [
       true,
@@ -106,6 +139,7 @@
       "check-operator",
       "check-separator",
       "check-type"
+<<<<<<< HEAD
     ],
     "directive-selector": [
       true,
@@ -131,5 +165,8 @@
     "no-access-missing-member": true,
     "templates-use-public": true,
     "invoke-injectable": true
+=======
+    ]
+>>>>>>> 53cacbe0c32de4a0aca1008a50c59cd5ce20b9c3
   }
 }
