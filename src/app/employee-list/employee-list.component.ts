@@ -21,8 +21,7 @@ export class EmployeeListComponent implements OnInit {
 	}
 	editEmp(emp:AddEmpModel){
 		this.httpService.detailsObj(emp);
-		this.router.navigateByUrl('/addemployee/edit');
-		//this.emplist = this.httpService.editEmp(emp);
+		this.router.navigateByUrl('/employee/edit');
 	}
 	deleteEmp(empId:number){
 		this.deletemodal.open();

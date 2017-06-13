@@ -20,13 +20,10 @@ export class AddEmployeeComponent implements OnInit{
 	curRoute:String | null;
 	EmpType:String | null;
 	addEmpStatus:boolean = false;
-	 public customSelected:string;
-  public statesComplex:any[] = [
-    {id: 1, name: 'Telangana', region: 'South'}, {id: 2, name: 'Karnataka', region: 'West'}, {id: 3, name: 'Odisha', region: 'West'},
-    {id: 4, name: 'Kolkata', region: 'South'}, {id: 5, name: 'Tamil Nadu', region: 'West'},
-    {id: 6, name: 'Gujarat', region: 'West'}, {id: 7, name: 'Punjab', region: 'Northeast'},
-    {id: 8, name: 'Andhra Pradesh', region: 'South'}, {id: 9, name: 'Maharasatra', region: 'South'}
-    ];
+	customSelected:string;
+    statesComplex:any[] = this.httpService.getStatesList();
+    depts:string[] = this.httpService.getDepts();
+    sports:string[] = this.httpService.getSports();
 
 	ngOnInit(){
 		this.route.params.subscribe(params => this.curRoute = params['id']);
@@ -39,7 +36,6 @@ export class AddEmployeeComponent implements OnInit{
 			this.num = this.num+1;
 			this.newEmp.id =this.num;
 			if(this.httpService.addemployees(this.newEmp) === "success"){
-				console.log("success");
 				this.newEmp = new AddEmpModel();
 				this.addEmpStatus = true;
 				addEmp.resetForm();
@@ -47,7 +43,6 @@ export class AddEmployeeComponent implements OnInit{
 		}
 		else if(this.curRoute === 'edit'){
 			if(this.httpService.editEmployee(this.newEmp) === "success"){
-				console.log("success");
 				this.newEmp = new AddEmpModel();
 				this.httpService.clearDetails();
 				this.router.navigateByUrl('/employeelist');

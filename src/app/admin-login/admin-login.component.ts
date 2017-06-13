@@ -17,12 +17,11 @@ class AdminDetails {
 export class AdminLoginComponent{
 	constructor(
 		private router: Router
-		){
-	}
+		){}
 	forgotPwd:boolean = false;
 	details:AdminDetails = new AdminDetails();
 	loginStatus = false;
-	adminDetails() {
+	adminDetails(): void {
 
 		if(this.forgotPwd === true){
 			alert('Password link has been sent to your registered Email ID');
@@ -31,7 +30,7 @@ export class AdminLoginComponent{
 		}
 		else {
 			if(this.details.username === 'admin' && this.details.password === 'admin'){
-			this.router.navigateByUrl('/addemployee/add');
+			this.router.navigateByUrl('/employee/add');
 			}
 			else {
 				this.loginStatus = true;
@@ -39,14 +38,14 @@ export class AdminLoginComponent{
 		}
 	}
 
-	fogtPwd(){
+	fogtPwd(): void{
 		this.forgotPwd = true;
 	}
-	backToLogin(){
+	backToLogin(): void{
 		this.forgotPwd = false;
 	}
 
-	popUpWindow(){
+	popUpWindow(): void{
 		var newWin = window.open("", null, "height=200,width=400,status=yes,toolbar=no,menubar=no,location=no");
 		newWin.document.write("<button id = 'closeWin' onClick = 'window.close()'>Close Window</button>");
 	}
