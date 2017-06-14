@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppHttpService } from '../http.service';
 
 class AdminDetails {
 	constructor(
@@ -16,7 +17,8 @@ class AdminDetails {
 
 export class AdminLoginComponent{
 	constructor(
-		private router: Router
+		private router: Router,
+		private httpService: AppHttpService
 		){}
 	forgotPwd:boolean = false;
 	details:AdminDetails = new AdminDetails();
@@ -30,6 +32,7 @@ export class AdminLoginComponent{
 		}
 		else {
 			if(this.details.username === 'admin' && this.details.password === 'admin'){
+			this.httpService.showNavBarLinks(true);
 			this.router.navigateByUrl('/employee/add');
 			}
 			else {

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AddEmpModel } from './models/add-emp.model';
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class AppHttpService{
@@ -19,6 +21,8 @@ export class AppHttpService{
     ];
     private depts:string[] = ["ECE", "EEE", "IT", "CSE", "MECH","AERO"];
     private sports:string[] = ["Cricket", "Football", "Volleyball", "Chess", "Tennis"];
+    private showNavbarLinks: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+    public showNavbarLinksEmitter: Observable<boolean> = this.showNavbarLinks.asObservable();
 
 	constructor(){}
 
@@ -67,5 +71,8 @@ export class AppHttpService{
     }
     getSports():string[]{
         return this.sports;
+    }
+    showNavBarLinks(ifShow: boolean){
+        this.showNavbarLinks.next(ifShow);
     }
 }
